@@ -44,6 +44,11 @@ export default {
   ** Build configuration
   */
   build: {
+    babel: {
+      presets({ isServer }, [ _preset, options ]) {
+        options.targets = isServer ? { node: 'current' } : { browsers: ['last 2 versions'], ie: 11 }
+      }
+    },
     /*
     ** You can extend webpack config here
     */
